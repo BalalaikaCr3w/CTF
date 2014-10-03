@@ -1,29 +1,33 @@
+#include <string>
+#include <iostream>
 
 #include <stdio.h>
 #include <string.h>
 
+using namespace std;
 int main()
 {
-	char str[1000];
-	
+	string str;
+
 	printf("SPLITTER\n");
 	printf("--------\n");
 	printf("\n");
 
-	str[0] = 0;
 	while (1)
 	{
-		char temp[50];
-		scanf("%50s", temp);
+		string temp;
+		cin.width(50);
+		cin >> temp;
 
-		if (strcmp(temp, ".") == 0)
+		if (temp == ".")
 			break;
 
-		strncat(str, temp, sizeof(str));
-		strncat(str, "\n", sizeof(str));
+		str += temp + "\n";
 	}
+	if (str.size() > 1000)
+			str.resize(1000);
 
-	printf("\n%s\n", str);
+	cout << "\n" << str << endl;
 
 	return -14;
 }
